@@ -1,4 +1,5 @@
 /* CSS Custom Properties Definitions */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 :root {
   --maxWidth-none: "none";
@@ -33,8 +34,9 @@
     "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
+  --fontFamily-monospace: 'Inconsolata', monospace;
   --font-body: var(--fontFamily-serif);
-  --font-heading: var(--fontFamily-sans);
+  --font-heading: var(--fontFamily-monospace);
   --fontWeight-normal: 400;
   --fontWeight-bold: 700;
   --fontWeight-black: 900;
@@ -252,8 +254,22 @@ a:focus {
   margin-bottom: var(--spacing-12);
 }
 
+.global-header__title {
+  margin-bottom: var(--spacing-6);
+}
+
+.global-nav a {
+  font-family: var(--fontFamily-monospace);
+  font-size: var(--fontSize-2);
+  margin-right: 1rem;
+}
+
+.global-nav a:last-child {
+  margin-right: 0;
+}
+
 .main-heading {
-  font-size: var(--fontSize-7);
+  font-size: var(--fontSize-3);
   margin: 0;
 }
 
@@ -281,7 +297,7 @@ a:focus {
   font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
   text-decoration: none;
-  font-size: var(--fontSize-2);
+  font-size: var(--fontSize-3);
 }
 
 .bio {
