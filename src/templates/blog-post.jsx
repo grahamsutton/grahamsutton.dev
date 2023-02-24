@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
+// import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
@@ -10,6 +11,14 @@ const BlogPostTemplate = ({
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+
+  console.log(site)
+
+  // const disqusConfig = {
+  //   url: `${config.siteUrl+location.pathname}`,
+  //   identifier: post.id,
+  //   title: post.title,
+  // }
 
   return (
     <Layout location={location} title={siteTitle}>

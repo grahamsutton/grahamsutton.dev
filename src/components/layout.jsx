@@ -28,7 +28,7 @@ const Layout = ({ location, title, children }) => {
         <nav className="global-nav">
           <Link to="/">About</Link>
           <Link to="/blog">Blog</Link>
-          <a href="https://github.com/grahamsutton">GitHub</a>
+          <a href="https://github.com/grahamsutton" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </header>
       <main>{children}</main>
