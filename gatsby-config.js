@@ -127,5 +127,17 @@ module.exports = {
         shortname: `grahamsutton-dev`
       }
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'G-NLHG4FP60H',
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false
+        },
+      },
+    },
   ],
 }
