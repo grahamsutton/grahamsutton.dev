@@ -223,8 +223,10 @@ table {
   border-spacing: 0.25rem;
 }
 
-table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+table thead tr th,
+table tbody tr td {
+  border: 1px solid var(--color-accent);
+  padding: 0.5rem 1rem;
 }
 
 /* Link */
@@ -331,6 +333,22 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.gatsby-highlight-code-line {
+  display: block;
+  border-left: 0.25rem solid #37bd5a;
+  padding-left: 0.75rem;
+  margin-left: -1rem;
+  margin-right: -2rem;
+  background-color: #CCFFCC;
+}
+
+/* Keeps images scaled to the article size. */
+.blog-post img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
 }
 
 /* Media queries */

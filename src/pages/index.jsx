@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
@@ -23,8 +23,8 @@ const AboutMe = ({ data, location }) => {
       </p>
       <p>
         Before I was a systems architect, I was a software developer. And before I was a software developer,
-        I was a waiter at a sushi restaurant where I met the woman who is now my beloved wife. That was
-        {year - 2013} years ago! We welcomed our first child into the world {year == 2023 ? 'this year' : `in 2023`}
+        I was a waiter at a sushi restaurant where I met the woman who is now my beloved wife. That was {year - 2013} years
+        ago! We welcomed our first child into the world {year === 2023 ? 'this year' : `in 2023`}
         and have never been happier.
       </p>
       <p>
