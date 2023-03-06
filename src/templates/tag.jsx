@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
+import TagList from '../components/tag-list'
 
 const TagTemplate = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -33,7 +34,8 @@ const TagTemplate = ({ data, location, pageContext }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small className="block mb-2">{post.frontmatter.date}</small>
+                  <TagList tags={post.frontmatter.tags} />
                 </header>
                 <section>
                   <p

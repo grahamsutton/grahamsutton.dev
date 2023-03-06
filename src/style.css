@@ -242,12 +242,24 @@ a:focus {
 
 /* Utility classes */
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
 
 .items-center {
   align-items: center;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 /* Custom classes */
