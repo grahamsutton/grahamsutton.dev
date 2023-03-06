@@ -7,8 +7,9 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
+// Define templates
+const blogPostTemplate = path.resolve(`./src/templates/blog-post.jsx`)
+const tagTemplate = path.resolve(`./src/templates/tag.jsx`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -22,6 +23,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
         nodes {
           id
+          frontmatter {
+            title
+            description
+            date
+            tags
+          }
           fields {
             slug
           }
@@ -39,24 +46,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes
+  const tags = new Set()
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
+
+    // ==============================================
+    //  Blog Posts
+    // ==============================================
+
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
+      post.frontmatter.tags?.forEach((tag) => {
+        tags.add(tag)
+      })
+
       createPage({
         path: post.fields.slug,
-        component: blogPost,
+        component: blogPostTemplate,
         context: {
           id: post.id,
           previousPostId,
           nextPostId,
         },
+      })
+    })
+
+    // ==============================================
+    //  Tags
+    // ==============================================
+
+    Array.from(tags).forEach(tag => {
+      createPage({
+        path: `/tags/${tag}/`,
+        component: tagTemplate,
+        context: {
+          tag
+        }
       })
     })
   }

@@ -12,7 +12,7 @@ module.exports = {
     title: `Graham Sutton`,
     author: {
       name: `Graham Sutton`,
-      summary: `Systems Architect in Miami, FL`,
+      summary: `Systems Architect`,
     },
     description: `A personal software development blog made to inspire you.`,
     siteUrl: `https://grahamsutton.dev/`,

@@ -11,6 +11,7 @@ const BlogPostTemplate = ({
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+  const tags = post.frontmatter?.tags || []
 
   const disqusConfig = {
     url: location.href,
@@ -28,6 +29,13 @@ const BlogPostTemplate = ({
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
+          <div className="post-tag-list">
+            {tags.map(tag => (
+              <Link to={`/tags/${tag}`}>
+                <div className="post-tag">{tag}</div>
+              </Link>
+            ))}
+          </div>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -99,6 +107,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

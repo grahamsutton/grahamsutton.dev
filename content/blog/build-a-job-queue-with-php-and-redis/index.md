@@ -1,7 +1,10 @@
 ---
 title: Build a Job Queue From Scratch with PHP and Redis
-date: "2022-02-26T22:32:00.000Z"
+date: "2023-02-26T22:32:00.000Z"
 description: "In this article, we'll build a job queue from scratch using PHP, Redis, and Docker Compose."
+tags:
+    - php
+    - redis
 ---
 
 In this article, we'll build a very basic job queue using PHP and Redis without using any frameworks. Turns out, it's actually much simpler than you might think.
@@ -294,7 +297,7 @@ The worker will run in an infinite loop, waiting for jobs to pull from the queue
 
 This job queue is simple enough that you could also use `RPOP` instead of `BRPOP` and get the same result. The only difference between the two is that `BRPOP` allows you to pop from multiple lists and `RPOP` only pops from one. They both are blocking operations that force the execution of your PHP client script to wait until another job is available or until a timeout is reached.
 
-To show this running in a real time, keep the worker running in your terminal and open another terminal window, tunnel into it, and then add jobs. As you keep adding them, the job queue will keep processing them as they come in.
+To show this running in a real time, keep the worker running in your terminal and open another terminal window, tunnel into the same `php` container, and then add jobs. As you keep adding them, the job queue will keep processing them as they come in.
 
 ![Worker processing queued jobs in real time](/blog/build-a-job-queue-with-php-and-redis/worker-2.gif)
 

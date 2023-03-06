@@ -45,7 +45,12 @@ const Bio = () => {
       {author?.name && (
         <p>
           <strong>{author.name}</strong>
-          <p>{author?.summary || null}</p>
+          <p className="flex items-center">
+            {author?.summary || 'works '} at&nbsp;
+            <a className="sproutloud" href="https://sproutloud.com" target="_blank" rel="noopener noreferrer">
+              <span>SproutLoud</span> <StaticImage alt="SproutLoud icon" src="../images/sproutloud.png" height={24} width={24} />
+            </a>
+          </p>
           {` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`} target="_blank" rel="noopener noreferrer">
             Follow me on Twitter if you want
