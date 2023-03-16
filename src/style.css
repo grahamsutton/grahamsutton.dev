@@ -358,6 +358,11 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+.gatsby-highlight pre {
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
+}
+
 .gatsby-highlight-code-line {
   display: block;
   border-left: 0.25rem solid #37bd5a;
@@ -402,6 +407,25 @@ a:focus {
 
 .post-tag:hover {
   box-shadow: 0 3px 0 hsl(220, 7%, 83%);;
+}
+
+.post-file-title {
+  text-align: center;
+  text-shadow: 0 0 50px hsla(0, 0%, 0%, 0.4);
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-bottom: -10px;
+  padding: 0.5rem 0;
+}
+
+.post-file-title pre {
+  margin: 0;
+}
+
+.post-side-point {
+  
 }
 
 .sproutloud {
