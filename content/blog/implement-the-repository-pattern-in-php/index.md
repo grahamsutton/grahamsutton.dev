@@ -13,6 +13,7 @@ In this article, you'll learn how to:
 
 * Understand the benefits of the repository pattern
 * Implement a basic repository pattern with best practices
+* Understand where repositories exist in your application's architecure and _why_
 * Use the Specification pattern to handle conditional querying
 
 # Why We Use Repositories
@@ -43,6 +44,38 @@ One of the biggest mistakes made when implementing the repository pattern is fai
 # Implementing a Repository
 
 For this article we're going to implement the repository pattern easily access and store `Post` objects for our fictitious app called "Postey". I'll show you how to then use the repository we create in a controller to give you a fuller picture.
+
+The ultimate goal is achieve a repository that has an elegant syntax like so:
+
+```php
+<?php
+
+// Instantiate a PostsRepository instance (that uses SQL to fetch posts)
+$postsRepo = new SQLPostsRepository(
+    new PDO('...', 'username', 'password')
+);
+
+// Fetch all posts
+$posts = $postsRepo->fetchAll(); // PostCollection
+
+foreach ($posts as $post) {
+    echo $post->getTitle() . PHP_EOL;
+}
+
+// Find a single post
+$post = $post->find('1'); // Post
+
+// Create a post
+$post = new Post('2', 'My New Post', 'This is my second and newest post.');
+$post = $postsRepo->save($post); // Post (id = 2)
+
+// Update existing post
+$post = new Post('2', 'This Post is Old Now', 'This is my second post but I\'ve updated it.');
+$post = $postsRepo->save($post); // Post (id = 2)
+
+// Delete post
+$post->delete('2');
+```
 
 Here's what we'll be implementing:
 
@@ -205,7 +238,7 @@ class PostCollection implements Iterator
      *
      * @return mixed
      */
-    public function key(): int
+    public function key(): mixed
     {
         return $this->position;
     }
@@ -243,9 +276,12 @@ class PostCollection implements Iterator
 }
 ```
 
-<div class="markdown">
-You may be wondering why we are using `PostCollection` class instead of an array, and that is a perfectly reasonable question. The reason not to use the `PostCollection` class is because we should take advantage of any opportunity to be _as strict and explicit as possible_ when we write our code. The `PostCollection` class enforces that all elements in the collection are of type `Post`, something that arrays can't do. Sure, you could do an `instanceof` check before inserting into the array, but there's no protection that the collection can't be mutated with an invalid element _after_ it has been returned from the repository. If you call `fetchAll` on the `PostsRepository` and the code doesn't fail, then you know every element is a valid `Post` object and you're getting back a collection object that can never exist in an invalid state.
-</div>
+We _could_ use an array instead of a `PostCollection` object, but I find it's best to go the extra mile to _be as explicit and as strict as possible_ with your code when building something robust. Defining a `PostCollection` class enforces that all elements in the collection are of the same type, protecting it from mutations within the repository and when returned from repository.
+
+It's also worth pointing out that, just how the `PostRepository` interface and its implementations belong to different architecural layers, so does the `Iterator` and `PostCollection` classes. The `Iterator` belongs to the Application layer while `PostCollection` belongs to the Domain layer. The easiest way to understand why is because the `Iterator` interface comes out-of-the-box with PHP, regardless of what your "business" is about. The `Iterator` class  If you were running a business about selling golf balls, do you think you would have a `PostCollection` class? Very unlikely. That's how you know a class belongs in the Domain layer because the existence of the class is directly tied to what the business is about.
+
+
+
 
 
 
