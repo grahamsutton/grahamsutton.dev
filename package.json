@@ -1,11 +1,11 @@
 {
   "name": "gatsby-starter-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A personal software development blog by Graham Sutton",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Graham Sutton <grahamsutton2@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/grahamsutton/grahamsutton.dev/issues"
   },
   "dependencies": {
     "@fontsource/merriweather": "^4.5.14",
@@ -20,6 +20,7 @@
     "gatsby-remark-images": "^7.7.0",
     "gatsby-remark-prismjs": "^7.7.0",
     "gatsby-remark-responsive-iframe": "^6.7.0",
+    "gatsby-remark-vscode": "^3.3.1",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-remark": "^6.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
@@ -30,7 +31,7 @@
   "devDependencies": {
     "prettier": "^2.8.4"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://grahamsutton.dev",
   "keywords": [
     "gatsby"
   ],

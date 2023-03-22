@@ -44,7 +44,7 @@
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
-  --lineHeight-relaxed: 1.625;
+  --lineHeight-relaxed: 1.825;
   /* 1.200 Minor Third Type Scale */
   --fontSize-0: 0.833rem;
   --fontSize-1: 1rem;
@@ -350,6 +350,26 @@ a:focus {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
+.blog-post ul,
+.blog-post ol {
+  margin-left: var(--spacing-0);
+  margin-right: var(--spacing-0);
+  padding: var(--spacing-0);
+  margin-bottom: var(--spacing-8);
+  list-style-type: none;
+}
+
+.blog-post ul li,
+.blog-post ol li {
+  margin-bottom: calc(var(--spacing-8) / 2);
+  line-height: var(--lineHeight-relaxed);
+  padding-left: 2.25rem;
+  background-image: url('./assets/play-circle.svg');
+  background-position: 8px 4px;
+  background-size: 1.4rem 1.4rem;
+  background-repeat: no-repeat;
+}
+
 .blog-post-nav ul {
   margin: var(--spacing-0);
 }
@@ -410,22 +430,27 @@ a:focus {
 }
 
 .post-file-title {
+  position: relative;
+  z-index: 10;
   text-align: center;
   text-shadow: 0 0 50px hsla(0, 0%, 0%, 0.4);
   border: 1px solid hsla(0, 0%, 0%, 0.1);
-  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  margin-bottom: -10px;
-  padding: 0.5rem 0;
+  box-shadow: 0 2px 2px hsla(0, 0%, 100%, 0.1);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  margin-bottom: -6px;
+  padding: 0.25rem 0;
+  background-color: #171717;
+  color: #D4D4D4;
 }
 
 .post-file-title pre {
   margin: 0;
 }
 
-.post-side-point {
-  
+.grvsc-container {
+  margin-top: 0;
+  margin-bottom: var(--spacing-8);
 }
 
 .sproutloud {
