@@ -9,7 +9,7 @@ tags:
 
 # Terminology
 
-* **Repository** - an collection-like object for persisting and accessing domain objects.
+* **Repository** - a collection-like object for persisting and accessing domain objects.
 * **Domain objects** - objects that represent a concept or entity from the problem domain being modeled.
 * **Entity** - a domain object that has an intrinsically unique identity.
 
