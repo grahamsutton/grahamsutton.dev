@@ -47,8 +47,8 @@ const Bio = () => {
           <strong>{author.name}</strong>
           <div className="flex items-center">
             {author?.summary || 'works '} at&nbsp;
-            <a className="sproutloud" href="https://sproutloud.com" target="_blank" rel="noopener noreferrer">
-              <span>SproutLoud</span> <StaticImage alt="SproutLoud icon" src="../images/sproutloud.png" height={24} width={24} />
+            <a className="ansira" href="https://ansira.com" target="_blank" rel="noopener noreferrer">
+              <span>Ansira</span> <StaticImage alt="Ansira icon" src="../images/ansira.png" height={24} width={24} />
             </a>
           </div>
           {` `}
